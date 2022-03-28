@@ -1,10 +1,11 @@
-// import {} from '../actions/index';
+import {MENU_STATE} from '../actions/index';
 
-export const reducer = (state = {}, action) => {
+export const reducer = (state = {menu_state: false}, action) => {
     switch (action.type) {
-        // case :
-        //     return state
+        case MENU_STATE:
+            let newState = {...state, menu_state: action.payload}
+            return newState;
         default:
-            return state
+            return state;
     }
 }
