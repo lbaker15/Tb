@@ -1,70 +1,13 @@
-# Getting Started with Create React App
+State management is handled via redux and testing was done via react testing library.  Sufficient contrast is used between the background and foreground in line with best accessibility practices and heading tags are in descending order.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<b>State Management</b>
+Redux state - Each input (email, password/username, colour, animal and tiger type) is stored within a reducer in the following format {value: 'value of input field - stored as string for all except animal which is an array', valid: boolean}
 
-## Available Scripts
+<b>Components</b>
+Form - contains the 3 fieldsets and holds the data that determines the type of input within those fieldsets.
 
-In the project directory, you can run:
+Paragraph section - contains the parent p element, an error class is added/removed from this element based upon the state of the child input, this class controls the border colour of the input. There is a label element inside the p element (this is rednered conditionally as not all inputs have labels ie submit).  There is also the input element (rendered dynamically based upon input type).
 
-### `npm start`
+Input - input renders the input.  Contains a validity condition for each input type which is redefined on change of the element.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Submit - each time an input changes (and therefore the reducer) the state within submit is updated.  If all inputs are valid (tiger type validity is only checked if tiger is included in animal value array) then the form is able to be submitted on click, however if not - an error message is shown.

@@ -8,7 +8,7 @@ let animals = ['bear', 'tiger', 'snake', 'donkey']
 
 const Form = () => {
     return (
-        <form method='post' action=''>
+        <form>
             <Text type="h1" text="Fill out this awesome form" />
             <Fieldset text="Your details" inputTypes={[{type: 'text', label: 'email'}, {type: 'password', label: 'password'}]} />
             <Fieldset text="Your animal" inputTypes={[{type: 'select', label: 'colour', values: colors}, {type: 'checkbox', label: 'animal', values: animals}, {type: 'text', label: 'tiger_type'}]}  />

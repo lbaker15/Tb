@@ -1,11 +1,41 @@
+$red: rgb(202, 1, 1);
+@import './existing.scss';
+
+.input-parent {
+    display: flex;
+    .input-parent__inner {
+        display: flex;
+        align-items: center;
+    }
+}
+@media (max-width:600px) {
+    .input-parent {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+    h1 {
+        text-align: center;
+    }
+    h2 {
+        text-align: center;
+    }
+}
 .hidden {
     display: none;
 }
 .error {
     input {
-        border: 1px solid red;
+        border: 1px solid $red;
     }
     .label {
-        color:red;
+        color:$red;
     }
+}
+.form--disabled {
+    filter: brightness(70%);
+}
+.form--enabled {
+    opacity: 1;
 }

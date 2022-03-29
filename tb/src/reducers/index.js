@@ -1,6 +1,8 @@
 import { TIGER_TYPE, EMAIL, PASSWORD, COLOUR, ANIMAL } from '../actions/index';
 
-export const reducer = (state = { animal: { array: [], valid: false }, password: { valid: false }, tiger_type: { valid: false }, colour: { valid: false }, email: { valid: false } }, action) => {
+export const initialState = {animal: { array: [], valid: false }, password: { valid: false }, tiger_type: { valid: false }, colour: { valid: false }, email: { valid: false }}
+
+export const reducer = (state = { ...initialState }, action) => {
     switch (action.type) {
         case EMAIL:
             return { ...state, email: action.payload };

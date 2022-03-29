@@ -6,9 +6,9 @@ const Text = ({ text, type }) => {
         return (
             <h1>{text}</h1>
         )
-    } else if (type === 'h3') {
+    } else if (type === 'h2') {
         return (
-            <h3>{text}</h3>
+            <h2>{text}</h2>
         )
     }
 }

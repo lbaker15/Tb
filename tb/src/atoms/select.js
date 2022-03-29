@@ -14,8 +14,8 @@ const Select = ({label, values}) => {
     return (
         <select onChange={handleChange} name={label} id={label}>
             <option value=''>Choose {label}</option>
-            {values.map(value => {
-                return <option value={value}>{value}</option>
+            {values.map((value, i) => {
+                return <option key={'color_value'+i} value={value}>{value}</option>
             })}
         </select>
     )

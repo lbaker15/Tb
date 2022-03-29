@@ -1,17 +1,52 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { setAnimal, setEmail, setPassword, setTigerType } from '../actions/index';
 
 const Submit = ({ reducer }) => {
     const dispatch = useDispatch()
+    const [disabled, setDisabled] = useState(true)
+    const [alert, setAlert] = useState('')
     const handleChange = (e) => {
-        //CHECK HERE
         e.preventDefault()
-        console.log('click', reducer)
+        if (disabled) {
+            setAlert('Please ensure all inputs are entered correctly')
+        } else {
+            setAlert('')
+            // let data = new FormData()
+            // data.append('data', reducer)
+            // fetch('', {
+            //     method: 'POST',
+            //     body: data
+            // })
+            // .then(res => res.json())
+            // .then(data => if (data.Success) {setAlert('Form Submitted')})
+        }
     }
+    useEffect(() => {
+        if (reducer.email.valid && reducer.password.valid && reducer.animal.valid && reducer.colour.valid) {
+            if (reducer.animal.array.includes('tiger')) {
+                if (reducer.tiger_type.valid) {
+                    setDisabled( false )
+                } else {
+                    setDisabled( true )
+                }
+            } else {
+                setDisabled( false )
+            }
+        } else {
+            setDisabled( true )
+        }
+    }, [reducer])
     return (
         <React.Fragment>
-            <input type='submit' value='Create account' onClick={handleChange} />
+            {alert.length > 0 &&
+            <span
+            data-testid="alert"
+            >{alert}</span>
+            }
+            <input 
+            data-testid="submit"
+            className={disabled ? 'form--disabled' : 'form--enabled'}
+            type='submit' value='Create account' onClick={handleChange} />
         </React.Fragment>
     )
 }

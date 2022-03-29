@@ -3,12 +3,14 @@ import './css/index.scss';
 import { connect } from 'react-redux';
 import Form from './organisms/form';
 
-function App({reducer}) {
-  return (
-    <div>
+function App({ reducer }) {
+  if (reducer) {
+    return (
       <Form />
-    </div>
-  );
+    )
+  } else {
+    <div>Loading...</div>
+  }
 }
 
 const MapStateToProps = (state) => ({
