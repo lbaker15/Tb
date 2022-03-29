@@ -1,4 +1,4 @@
-State management is handled via redux and testing was done via react testing library.  Sufficient contrast is used between the background and foreground in line with best accessibility practices and heading tags are in descending order.
+State management is handled via redux and testing was done via react testing library.  Sufficient contrast is used between the background and foreground in line with best accessibility practices, heading tags are in descending order and all labels have htmlFor attributes.  
 
 <b>State Management</b>
 <br/>

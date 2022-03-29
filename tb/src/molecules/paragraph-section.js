@@ -8,15 +8,12 @@ import Submit from '../atoms/submit';
 const ParagraphSection = ({ label, inputType, values, reducer }) => {
     if (reducer) {
         if (inputType === 'checkbox') {
-            let capitalized = String(label[0]).toLocaleUpperCase() + String(label).substring(1)
             return (
                 <p
                     className={(reducer[label]) ? reducer[label].valid ? 'input-parent' : 'error input-parent' : 'input-parent'}
                 >
-                   
-                    <span className='label'>
-                        {capitalized}
-                    </span>
+                
+                    <Label label="animal" string={label} />
                     {values.map((value, i) => {
                         return (
                             <React.Fragment key={'animal_label' + i}>
